@@ -1,0 +1,38 @@
+.drag {
+  padding: 10px;
+  border-radius: 4px;
+  display: inline-block;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  
+  .content {
+    width: 240px;
+    height: 120px;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    .splitter{
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 30px;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .firstPrompt{
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.6);
+    }
+  
+    .secondaryPrompt{
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+

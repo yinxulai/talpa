@@ -17,10 +17,11 @@
       ]
     },
     "typeRoots": [
-      "typing"
+      "typings"
     ]
   },
   "include": [
+    "typings/**/*",
     "server/**/*",
     "front/**/*"
   ]
