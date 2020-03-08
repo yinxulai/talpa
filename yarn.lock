@@ -390,6 +390,13 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.29.tgz#46275f028b4e463b9ac5fefc1d08bc66cc193f25"
   integrity sha512-yo8Qz0ygADGFptISDj3pOC9wXfln/5pQaN/ysDIzOaAWXt73cNHmtEC8zSO2Y+kse/txmwIAJzkYZ5fooaS5DQ==
 
+"@types/pngjs@^3.4.1":
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/@types/pngjs/-/pngjs-3.4.1.tgz#2da41c25e4eb4c4e4c703cb306f7561311ac3a0c"
+  integrity sha512-cMBddD0y1zHkyT2nHNvQh1VQZyAnQc+i2I3GhY74CMyCEbGBfQ2fmDUuIwcsw6saVj4EdoJ/PAXZYOXRO368MA==
+  dependencies:
+    "@types/node" "*"
+
 "@typescript-eslint/eslint-plugin@^2.18.0":
   version "2.22.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-2.22.0.tgz#218ce6d4aa0244c6a40baba39ca1e021b26bb017"
@@ -3042,6 +3049,13 @@ he@1.2.x:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
+heic-decode@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/heic-decode/-/heic-decode-1.1.1.tgz#7b8c2e5a4b7a7bc1c8eb754ac35ed77be44c5a20"
+  integrity sha512-0KKYaXk2QSZrQIp4UKaNt/tyK8UGZkdfTzZRzny+cyYbNPJXRicaLCphMOuaBxHpHvCBTqnl0rM0qQ+rN98gJg==
+  dependencies:
+    libheif-js "^1.6.1"
+
 hmac-drbg@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/hmac-drbg/-/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"
@@ -3513,6 +3527,11 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
+jpeg-js@^0.3.7:
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/jpeg-js/-/jpeg-js-0.3.7.tgz#471a89d06011640592d314158608690172b1028d"
+  integrity sha512-9IXdWudL61npZjvLuVe/ktHiA41iE8qFyLB+4VDTblEsWBzeg8WQTlktdUK4CdncUqtUgUg0bbOmTE2bKBKaBQ==
+
 js-tokens@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
@@ -3638,6 +3657,11 @@ levn@^0.3.0, levn@~0.3.0:
   dependencies:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
+
+libheif-js@^1.6.1:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/libheif-js/-/libheif-js-1.6.2.tgz#e57ace34dbb1b9ae9bd46d6119fa6ff2b03ac684"
+  integrity sha512-+UJ9x/D62Yf87ff9iSRMAldaKfvSIpkubqLalJugf2lu8F9tyeDXEZZP3cFbW+DoKt/n5IH9gnp5myR5W3YI0A==
 
 load-json-file@^1.0.0:
   version "1.1.0"
@@ -4743,6 +4767,11 @@ plist@^3.0.0, plist@^3.0.1:
     base64-js "^1.2.3"
     xmlbuilder "^9.0.7"
     xmldom "0.1.x"
+
+pngjs@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/pngjs/-/pngjs-3.4.0.tgz#99ca7d725965fb655814eaf65f38f12bbdbf555f"
+  integrity sha512-NCrCHhWmnQklfH4MtJMRjZ2a8c80qXeMlQMv2uVp9ISJMTt562SbGd6n2oq0PaPgKm7Z6pL9E2UlLIhC+SHL3w==
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
