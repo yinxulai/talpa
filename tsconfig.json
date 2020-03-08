@@ -15,7 +15,10 @@
       "*": [
         "node_modules/*"
       ]
-    }
+    },
+    "typeRoots": [
+      "typing"
+    ]
   },
   "include": [
     "server/**/*",

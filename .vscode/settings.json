@@ -1,6 +1,7 @@
 {
   "files.exclude": {
     ".vscode": true,
+    ".webpack": true,
     "node_modules": true
   }
 }
