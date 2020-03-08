@@ -52,7 +52,7 @@
               "entryPoints": [
                 {
                   "html": "./front/index.html",
-                  "js": "./front/renderer.ts",
+                  "js": "./front/renderer.tsx",
                   "name": "main_window"
                 }
               ]
@@ -72,6 +72,8 @@
     "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
     "@types/node": "^13.9.0",
     "@types/pngjs": "^3.4.1",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
     "css-loader": "^3.0.0",
@@ -88,6 +90,9 @@
     "electron-squirrel-startup": "^1.0.0",
     "heic-decode": "^1.1.1",
     "jpeg-js": "^0.3.7",
-    "pngjs": "^3.4.0"
+    "pngjs": "^3.4.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-pitaya": "^0.0.13"
   }
 }

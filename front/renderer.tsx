@@ -27,5 +27,15 @@
  */
 
 import './index.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-console.log('👋 This message is being logged by "renderer.js", included via webpack');
+const App = () => {
+  return (
+    <div>
+      <p>Hello world!</p>
+    </div>
+  )
+}
+
+ReactDOM.render(<App />, document.getElementById('app'))
