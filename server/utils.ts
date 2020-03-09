@@ -18,7 +18,7 @@ export async function readFile(path: string): Promise<Buffer> {
 export async function writeFile(data: Buffer, filename: string): Promise<void> {
   log('输出文件:', filename)
   await mkdirs(path.dirname(filename)) // 创建目录
-  
+
   return new Promise((resolve, reject) => {
     fs.writeFile(filename, data, function (err) {
       if (err) {
@@ -54,7 +54,14 @@ export async function mkdirs(pathstr: string): Promise<void> {
   })
 }
 
+export function isDev() {
+  return process.env.NODE_ENV === 'development'
+}
+
 // 日志、方便调试
 export function log(...args: any[]) {
-  console.log(...args)
+  if (isDev()) {
+    console.log(...args)
+  }
 }
+

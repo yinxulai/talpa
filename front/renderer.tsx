@@ -1,8 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import { convert } from './call'
+import ReactDOM from 'react-dom'
 import { Format } from '../typings/format'
-import { Drag } from './drag'
+
+import { Drag } from './componet/drag'
 import styles from './index.less'
 
 async function handleFile(files: File[]) {

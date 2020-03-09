@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from 'electron';
+import { isDev } from './utils';
 import './handler'
 
 // 环境注入的入口变量
@@ -9,22 +10,34 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 }
 
 const createWindow = () => {
+  const options = {
+    resizable: isDev()
+  }
+
   const mainWindow = new BrowserWindow({
     show: false,
     width: 400,
     height: 280,
     titleBarStyle: 'hidden',
     webPreferences: {
-      nodeIntegration: true, 
-    }
+      nodeIntegration: true,
+    },
+    ...options
   });
 
   // and load the index.html of the app.
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
-    .then(() => mainWindow.show());
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  mainWindow.on('ready-to-show', () => {
+    mainWindow.show()
+  });
+
+  if (isDev()) {
+    // Open the DevTools.
+    mainWindow.webContents.openDevTools();
+  }
+
+  return mainWindow
 };
 
 app.on('ready', createWindow);
