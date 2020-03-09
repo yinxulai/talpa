@@ -1,7 +1,7 @@
 import { ipcMain } from 'electron';
+import convert, { ConvertOptions } from './convert';
 
 // 监听通信
-ipcMain.handle('convertfile', (event, filepath: string, format: string) => {
-  console.log(event, filepath, format)
-  return `${filepath}: 处理完成`
+ipcMain.handle('convert', (_, options: ConvertOptions) => {
+  return convert(options)
 })

@@ -1,9 +1,8 @@
 import { ipcRenderer } from 'electron'
-
-type ImageFormat = 'PNG' | 'JPEG'
+import { ConvertOptions } from '../../server/convert'
 
 // 单个文件转换
-export async function convertFile(filepath: string, format: ImageFormat) {
-  return ipcRenderer.invoke('convertfile', filepath, format)
+export async function convert(options: ConvertOptions) {
+  return ipcRenderer.invoke('convert', options)
 }
 

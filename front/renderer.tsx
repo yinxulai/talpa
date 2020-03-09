@@ -1,15 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { convertFile } from './call'
-
+import { convert } from './call'
+import { Format } from '../typings/format'
 import { Drag } from './drag'
 import styles from './index.less'
 
 async function handleFile(files: File[]) {
   for (let index = 0; index < files.length; index++) {
-    console.log(files[index].path)
-    const result = await convertFile(files[index].path, 'PNG')
-    console.log(result)
+    await convert({
+      outFormat: Format.JPEG,
+      srcPath: files[index].path
+    })
   }
 }
 
