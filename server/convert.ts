@@ -45,20 +45,20 @@ async function PNGEncode(options: JPEGEncodeOptions & ImageEncodeOptions): Promi
   });
 }
 
-interface HEICDecodeResult {
+interface DecodeResult {
   width: number,
   height: number,
   data: Buffer
 }
 
 // HEIC 解码
-async function HEICDecode(data: Buffer): Promise<HEICDecodeResult> {
+async function HEICDecode(data: Buffer): Promise<DecodeResult> {
   log('HEIC 格式图片解码')
   const result = await heic({ buffer: data })
   return { ...result, data: Buffer.from(result.data) }
 }
 
-// HEIC 解码，解码 HEIC 里的全部图片
+// TODO: HEIC 解码，解码 HEIC 里的全部图片
 async function HEICAllDecode(data: Buffer): Promise<any> {
   return await heic.all({ buffer: data })
 }
