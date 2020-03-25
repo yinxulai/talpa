@@ -34,11 +34,11 @@
         "zip"
       ],
       "category": "com.yinxulai.talpa",
-      "icon": "static/mac/logo.icns",
+      "icon": "assets/mac/logo.icns",
       "darkModeSupport": true
     },
     "win": {
-      "icon": "static/win/logo.ico",
+      "icon": "assets/win/logo.ico",
       "target": [
         {
           "target": "nsis",
@@ -74,7 +74,7 @@
       ]
     },
     "linux": {
-      "icon": "static/linux/logo",
+      "icon": "assets/linux/logo",
       "target": [
         "deb"
       ],
