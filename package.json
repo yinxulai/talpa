@@ -22,6 +22,71 @@
       "sourceDirectory": "source/front"
     }
   },
+  "build": {
+    "productName": "talpa",
+    "artifactName": "talpa-${version}.${ext}",
+    "appId": "com.yinxulai.talpa",
+    "asar": true,
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.development",
+      "icon": "static/mac/logo.icns",
+      "darkModeSupport": true
+    },
+    "win": {
+      "icon": "static/win/logo.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "talpa",
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "talpa-${version}.${ext}",
+      "unicode": true
+    },
+    "extraFiles": [],
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "icon": "static/linux/logo",
+      "target": [
+        "deb"
+      ],
+      "category": "Development"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "yinxulai",
+        "repo": "talpa"
+      }
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "plugin:react/recommended",
