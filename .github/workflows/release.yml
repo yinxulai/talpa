@@ -22,6 +22,7 @@ jobs:
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
         with:
+          build_script_name: compile
           github_token: ${{ secrets.github_token }}
 
           mac_certs: ${{ secrets.mac_certs }}
