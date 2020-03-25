@@ -28,6 +28,9 @@
     "artifactName": "talpa-${version}.${ext}",
     "appId": "com.yinxulai.talpa",
     "asar": true,
+    "extraResources": [
+      "assets/**/*"
+    ],
     "mac": {
       "target": [
         "dmg",
@@ -58,7 +61,6 @@
       "artifactName": "talpa-${version}.${ext}",
       "unicode": true
     },
-    "extraFiles": [],
     "dmg": {
       "contents": [
         {
