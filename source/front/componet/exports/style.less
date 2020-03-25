@@ -1,0 +1,48 @@
+@import "~react-pitaya/lib/styles/color.less";
+
+.exports {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  .selectItem {
+    margin:0 4px;
+    transition: .1s;
+    cursor: pointer;
+    padding: 4px 12px;
+    border-radius: 10px;
+    color: rgb(90, 60, 131);
+    border: 2px solid rgba(66, 41, 99, 0);
+
+    .extName {
+      color: inherit;
+      font-size: 14px;
+      transition: .1s;
+      line-height: 20px;
+      font-weight: bold;
+    }
+    
+    .mimeType {
+      display: none;
+      color: inherit;
+      font-size: 12px;
+      transition: .1s;
+      line-height: 20px;
+    }
+  }
+
+  .selected {
+    color: white !important;
+    border: 2px solid rgba(93, 74, 147, 1);
+
+    .mimeType {
+      display: block;
+    }
+  }
+
+  .selectItem:hover {
+    border: 2px solid rgba(93, 74, 147, 1);
+  }
+}

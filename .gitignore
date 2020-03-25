@@ -36,9 +36,6 @@ build/Release
 node_modules/
 jspm_packages/
 
-# TypeScript v1 declaration files
-typings/
-
 # TypeScript cache
 *.tsbuildinfo
 
@@ -85,5 +82,5 @@ typings/
 # Webpack
 .webpack/
 
-# Electron-Forge
-out/
+# Electron-builder
+dist/

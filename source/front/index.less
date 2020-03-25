@@ -1,0 +1,31 @@
+:global {
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    box-sizing: border-box;
+    -webkit-app-region: drag;
+    background-color: #081A34;
+    background-image: linear-gradient(-44deg, #1A0909 0%, #081A34 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+  #app{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-app-region: drag;
+  }
+}
+
+.app {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-app-region: no-drag;
+}

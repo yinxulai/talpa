@@ -1,89 +1,102 @@
 {
-  "name": "heic-convert",
-  "productName": "heic-convert",
-  "version": "1.0.0",
-  "description": "My Electron application description",
-  "main": ".webpack/main",
-  "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "eslint --ext .ts ."
-  },
-  "keywords": [],
-  "author": {
-    "name": "yinxulai",
-    "email": "yinxulai@hotmail.com"
-  },
+  "name": "talpa",
   "license": "MIT",
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
+  "version": "0.0.4",
+  "description": "基于 Electron 的图片格式转换工具",
+  "scripts": {
+    "start": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null",
+    "dist:all": "yarn run dist --x64 -wml",
+    "dist:win": "yarn run dist --x64 -w",
+    "dist:linux": "yarn run dist -l",
+    "dist:mac": "yarn run dist -m"
+  },
+  "electronWebpack": {
+    "main": {
+      "sourceDirectory": "source/server"
+    },
+    "renderer": {
+      "webpackConfig": "webpack.js",
+      "sourceDirectory": "source/front"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "env": {
+      "node": true,
+      "es2020": true,
+      "browser": true
+    },
+    "globals": {
+      "__static": true
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "rules": {
+      "@typescript-eslint/ban-types": 0,
+      "@typescript-eslint/no-explicit-any": 0,
+      "@typescript-eslint/no-empty-interface": 0,
+      "@typescript-eslint/member-delimiter-style": 0,
+      "@typescript-eslint/explicit-function-return-type": 0,
+      "no-unused-vars": [
+        "error",
         {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "heic_convert"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
+          "argsIgnorePattern": "^_"
         }
-      ],
-      "plugins": [
-        [
-          "@electron-forge/plugin-webpack",
-          {
-            "mainConfig": "./webpack.main.config.js",
-            "renderer": {
-              "config": "./webpack.renderer.config.js",
-              "entryPoints": [
-                {
-                  "html": "./front/index.html",
-                  "js": "./front/renderer.ts",
-                  "name": "main_window"
-                }
-              ]
-            }
-          }
-        ]
       ]
     }
   },
-  "devDependencies": {
-    "@electron-forge/cli": "6.0.0-beta.50",
-    "@electron-forge/maker-deb": "6.0.0-beta.50",
-    "@electron-forge/maker-rpm": "6.0.0-beta.50",
-    "@electron-forge/maker-squirrel": "6.0.0-beta.50",
-    "@electron-forge/maker-zip": "6.0.0-beta.50",
-    "@electron-forge/plugin-webpack": "6.0.0-beta.50",
-    "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
-    "@types/node": "^13.9.0",
-    "@typescript-eslint/eslint-plugin": "^2.18.0",
-    "@typescript-eslint/parser": "^2.18.0",
-    "css-loader": "^3.0.0",
-    "electron": "^8.1.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-import": "^2.20.0",
-    "fork-ts-checker-webpack-plugin": "^3.1.1",
-    "node-loader": "^0.6.0",
-    "style-loader": "^0.23.1",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.7.0"
-  },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "autobind-decorator": "^2.4.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "file-type": "^14.1.4",
+    "heic-decode": "^1.1.1",
+    "jpeg-js": "^0.3.7",
+    "omggif": "^1.0.10",
+    "pngjs": "^3.4.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-pitaya": "^0.0.14",
+    "react-transition-group": "^4.3.0",
+    "source-map-support": "^0.5.16",
+    "update-electron-app": "^1.5.0",
+    "utif": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.3",
+    "@types/pngjs": "^3.4.2",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "@types/webpack-env": "^1.15.1",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "css-loader": "^3.4.2",
+    "electron": "7.1.7",
+    "electron-builder": "21.2.0",
+    "electron-webpack": "^2.7.4",
+    "electron-webpack-eslint": "^5.0.1",
+    "electron-webpack-ts": "^3.2.0",
+    "eslint-plugin-react": "^7.17.0",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-hot-loader": "4.12.18",
+    "source-map-support": "^0.5.16",
+    "style-loader": "^1.1.3",
+    "typescript": "^3.7.4",
+    "webpack": "4.41.5"
   }
 }

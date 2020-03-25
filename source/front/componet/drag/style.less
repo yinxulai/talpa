@@ -1,0 +1,71 @@
+.drag {
+  padding: 10px;
+  transition: .2s;
+  border-radius: 10px;
+  display: inline-block;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.0);
+  border: 2px dashed rgba(93, 74, 147, .8);
+
+  .content {
+    width: 240px;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    .icon {
+      width: 40px;
+      margin: 20px;
+      flex-shrink: 0;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    .splitter{
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 30px;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .firstPrompt{
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 30px;
+      color: rgb(211, 202, 236);
+    }
+  
+    .secondaryPrompt{
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 20px;
+      color:  rgba(211, 202, 236, .8);
+    }
+  }
+}
+
+.DRAG {
+  // 拖拽期间在被拖拽元素上连续触发
+}
+
+.DROP {
+  // 鼠标在拖放目标上释放时,在拖放目标上触发.此时监听器需要收集数据并且执行所需操作
+}
+
+.DRAGEND {
+  // 鼠标在拖放目标上释放时,在拖拽元素上触发.将元素从浏览器拖放到操作系统时不会触发此事件.
+}
+
+.DRAGOVER {
+  // 拖拽时鼠标在目标元素上移动时触发.监听器通过阻止浏览器默认行为设置元素为可拖放元素.
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 1);
+}
+
+.PRIMARY, .DRAGLEAVE {
+  // 原始状态
+  //拖拽时鼠标移出目标元素时在目标元素上触发.此时监听器可以取消掉前面设置的视觉效果
+}
