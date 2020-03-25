@@ -1,7 +1,8 @@
 {
   "name": "talpa",
   "license": "MIT",
-  "version": "0.0.4",
+  "version": "0.0.1",
+  "author": "Alain <yinxulai@hotmail.com.com>",
   "description": "基于 Electron 的图片格式转换工具",
   "scripts": {
     "start": "electron-webpack dev",
@@ -32,7 +33,7 @@
         "dmg",
         "zip"
       ],
-      "category": "public.app-category.development",
+      "category": "com.yinxulai.talpa",
       "icon": "static/mac/logo.icns",
       "darkModeSupport": true
     },
@@ -77,7 +78,7 @@
       "target": [
         "deb"
       ],
-      "category": "Development"
+      "category": "com.yinxulai.talpa"
     },
     "publish": [
       {
