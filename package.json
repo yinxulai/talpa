@@ -132,6 +132,7 @@
     }
   },
   "dependencies": {
+    "address": "^1.1.2",
     "autobind-decorator": "^2.4.0",
     "electron-squirrel-startup": "^1.0.0",
     "file-type": "^14.1.4",
@@ -144,6 +145,7 @@
     "react-pitaya": "^0.0.14",
     "react-transition-group": "^4.3.0",
     "source-map-support": "^0.5.16",
+    "universal-analytics": "^0.4.20",
     "update-electron-app": "^1.5.0",
     "utif": "^3.1.0"
   },
