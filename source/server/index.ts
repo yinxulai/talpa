@@ -1,3 +1,4 @@
+import { autoUpdater } from 'electron-updater'
 import { app, BrowserWindow } from 'electron'
 import { initGA, initSentry } from '../anys'
 import { format as formatUrl } from 'url'
@@ -81,6 +82,7 @@ app.on('activate', () => {
 // create main BrowserWindow when electron is ready
 app.on('ready', () => {
   mainWindow = createMainWindow()
+  autoUpdater.checkForUpdatesAndNotify()
 })
 
 app.on('certificate-error', (error) => {
