@@ -1,6 +1,7 @@
 # talpa
 
 ![logo](https://github.com/yinxulai/talpa/blob/desgin/assets/logo/64x64.png)
+
 ![Build/release](https://github.com/yinxulai/talpa/workflows/Build/release/badge.svg)
 
 基于 `Electron` 的图片格式转换工具，`talpa` 是拉丁语中变色龙的意思，这个工具开始只是为了方便自己导出手机里的 heic 相片，后面将考虑支持更多格式的转换支持。
