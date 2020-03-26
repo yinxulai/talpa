@@ -10,6 +10,9 @@ import './handler'
 initGA()
 initSentry()
 
+// 背景透明
+app.commandLine.appendSwitch('disable-renderer-backgrounding');
+
 // 启动热更新
 if (module.hot) { module.hot.accept() }
 
@@ -25,6 +28,7 @@ function createMainWindow() {
     width: 350,
     height: 250,
     show: false,
+    transparent: true,
     titleBarStyle: 'hidden',
     webPreferences: {
       nodeIntegration: true,
