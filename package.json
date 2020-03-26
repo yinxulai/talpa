@@ -1,7 +1,7 @@
 {
   "name": "talpa",
   "license": "MIT",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Alain <yinxulai@hotmail.com.com>",
   "description": "基于 Electron 的图片格式转换工具",
   "scripts": {
