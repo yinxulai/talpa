@@ -1,8 +1,11 @@
 import { app, BrowserWindow } from 'electron'
 import { format as formatUrl } from 'url'
+import { initGA } from './analytics'
 import { isDev } from './utils'
 import path from 'path'
 import './handler'
+
+initGA()
 
 // 启动热更新
 if (module.hot) { module.hot.accept() }

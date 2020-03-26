@@ -13,8 +13,8 @@ export const sendEvent = (category: string, action: string) => {
 }
 // 初始化
 export const initGA = () => {
-  address.mac(() => {
-    visitor = ua('UA-99362118-4')
+  address.mac((_, mac) => {
+    visitor = ua('UA-99362118-4', mac || 'null-mac-address')
     sendPageView()
   })
 }
