@@ -5,7 +5,9 @@ interface Props {
   title: string // 总计
 }
 
-export const Header = (_props: Props) => {
+// TODO: 这个 lint 类型我咋配都报。。。
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const Header = (_: Props) => {
   // const { title } = props
   return (
     <div className={styles.header}>

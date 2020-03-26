@@ -46,7 +46,7 @@ const App = () => {
     const supportedFiles = files.filter(file => isDecodeSupported(file.type))
     warning(`累计发现 ${supportedFiles.length} 个文件可进行转换。`)
     setProgress([supportedFiles.length, 0, 0])
-    setState(AppState.Converting);
+    setState(AppState.Converting)
 
     for (let index = 0; index < supportedFiles.length; index++) {
       const file = supportedFiles[index]

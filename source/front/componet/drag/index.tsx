@@ -25,7 +25,7 @@ export const Drag = (props: DragProps) => {
   const isState = (...states: DragState[]) => states.includes(dragState)
 
   const onDrop: React.DragEventHandler<HTMLDivElement> = e => {
-    e.preventDefault();
+    e.preventDefault()
     updateDragState(DragState.DROP)
     const { files } = e.dataTransfer
     const { onSelect = () => null } = props

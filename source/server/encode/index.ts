@@ -20,5 +20,5 @@ export async function encode(format: SupportedEncodeMimeType, image: ImageEncode
     return await PNGEncode(image, options)
   }
 
-  throw new Error("不支持的文件格式")
+  throw new Error('不支持的文件格式')
 }

@@ -113,14 +113,19 @@
       }
     },
     "rules": {
+      "semi": [
+        1,
+        "never"
+      ],
       "@typescript-eslint/ban-types": 0,
       "@typescript-eslint/no-explicit-any": 0,
       "@typescript-eslint/no-empty-interface": 0,
       "@typescript-eslint/member-delimiter-style": 0,
       "@typescript-eslint/explicit-function-return-type": 0,
       "no-unused-vars": [
-        "error",
+        1,
         {
+          "varsIgnorePattern": "^_",
           "argsIgnorePattern": "^_"
         }
       ]
@@ -153,7 +158,7 @@
     "css-loader": "^3.4.2",
     "electron": "7.1.7",
     "electron-builder": "22.2.0",
-    "electron-webpack": "^2.7.4",
+    "electron-webpack": "^2.8.0",
     "electron-webpack-eslint": "^5.0.1",
     "electron-webpack-ts": "^3.2.0",
     "eslint-plugin-react": "^7.17.0",

@@ -7,7 +7,9 @@ export interface PNGEncodeOptions {
 }
 
 // PNG 编码
-export async function PNGEncode(image: ImageEncodeOptions, _: PNGEncodeOptions): Promise<Buffer> {
+// TODO: 这个 lint 类型我咋配都报。。。
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export async function PNGEncode(image: ImageEncodeOptions, _options: PNGEncodeOptions): Promise<Buffer> {
   log('将数据按 PNG 格式进行编码')
   const { data, width, height } = image
   const png = new PNG({ width, height })
