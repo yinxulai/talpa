@@ -1,18 +1,17 @@
-![logo](https://github.com/yinxulai/talpa/blob/desgin/logo@32.png)
-
 # talpa
-![Build/release](https://github.com/yinxulai/talpa/workflows/Build/release/badge.svg)
 
+![logo](https://github.com/yinxulai/talpa/blob/desgin/assets/logo/64x64.png)
+![Build/release](https://github.com/yinxulai/talpa/workflows/Build/release/badge.svg)
 
 基于 `Electron` 的图片格式转换工具，`talpa` 是拉丁语中变色龙的意思，这个工具开始只是为了方便自己导出手机里的 heic 相片，后面将考虑支持更多格式的转换支持。
 
-### 功能
+## 功能
 
 目前支持 `heic`、`png`、`jpeg`,`tiff`、`gif` 转换为 `png`、`jpeg`, 其他格式慢慢支持中。。。
 
 ### 安装下载
 
- 目前版本较低暂不提供二进制文件下载，请拉取仓库手动编译。
+  请在 [`release`](https://github.com/yinxulai/talpa/releases) 下载自己的平台二进制文件包即可
 
 ### 使用
 
@@ -20,7 +19,7 @@
 
 ### 演示
 
-![演示](https://github.com/yinxulai/talpa/blob/desgin/preview.gif)
+![演示](https://github.com/yinxulai/talpa/blob/desgin/assets/preview.gif)
 
 ## TODO
  * [x] 支持导出格式选择
