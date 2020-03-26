@@ -2,7 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { ipcRenderer } from 'electron'
 import { Drag } from './componet/drag'
+import * as Sentry from '@sentry/electron'
 import { Header } from './componet/header'
+import { initGA, initSentry } from '../anys'
 import { Exports } from './componet/exports'
 import { Progress } from './componet/progress'
 import { ConvertOptions, ConvertResult } from '../../typings/convert'
@@ -10,6 +12,11 @@ import { Toaster, warning, success, error } from 'react-pitaya/lib/helper/toaste
 import { SupportedEncodeMimeType, SupportedDecodeMimeType } from '../../typings/format'
 
 import styles from './index.less'
+
+initGA()
+initSentry()
+
+Sentry.captureException(new Error('test'));
 
 enum AppState {
   Converting = 'Converting', // 转换中
@@ -87,6 +94,7 @@ const App = () => {
     </>
   )
 }
+
 
 // 启动热更新
 if (module.hot) { module.hot.accept() }

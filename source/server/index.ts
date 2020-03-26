@@ -1,11 +1,13 @@
 import { app, BrowserWindow } from 'electron'
+import { initGA, initSentry } from '../anys'
 import { format as formatUrl } from 'url'
-import { initGA } from './analytics'
+import { sendException } from '../anys'
 import { isDev } from './utils'
 import path from 'path'
 import './handler'
 
 initGA()
+initSentry()
 
 // 启动热更新
 if (module.hot) { module.hot.accept() }
@@ -79,4 +81,12 @@ app.on('activate', () => {
 // create main BrowserWindow when electron is ready
 app.on('ready', () => {
   mainWindow = createMainWindow()
+})
+
+app.on('certificate-error', (error) => {
+  sendException(error)
+})
+
+app.on('continue-activity-error', (error) => {
+  sendException(error)
 })

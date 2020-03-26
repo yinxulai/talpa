@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { encode } from './encode'
+import { sendException } from '../anys'
 import { decode, DecodeResult, Result } from './decode'
 import { readFile, writeFile, log } from './utils'
 import { SupportedEncodeMimeType } from '../../typings/format'
@@ -33,13 +34,21 @@ export default async function convert(options: ConvertOptions): Promise<ConvertR
 
   // 读取文件
   let file
-  try { file = await readFile(srcPath) }
-  catch { return { error: '读取文件失败' } }
+  try {
+    file = await readFile(srcPath)
+  } catch (err) {
+    sendException(err)
+    return { error: '读取文件失败' }
+  }
 
   // 解码文件
   let decodeData: DecodeResult
-  try { decodeData = await decode(file) }
-  catch (err) { return { error: '文件解码失败' } }
+  try {
+    decodeData = await decode(file)
+  } catch (err) {
+    sendException(err)
+    return { error: '文件解码失败' }
+  }
 
   // TODO: 这里可以做一些压缩等操作
 
@@ -58,12 +67,20 @@ export default async function convert(options: ConvertOptions): Promise<ConvertR
   for (const data of encodeQueue) {
     // 编码文件
     let encodeData: Buffer
-    try { encodeData = await encode(outFormat, data, {...outOptions}) }
-    catch (err) { return { error: '文件解码失败' } }
+    try {
+      encodeData = await encode(outFormat, data, { ...outOptions })
+    } catch (err) {
+      sendException(err)
+      return { error: '文件解码失败' }
+    }
 
     // 写出文件
-    try { await writeFile(encodeData, outPath) }
-    catch { return { error: '保存文件发生错误' } }
+    try {
+      await writeFile(encodeData, outPath)
+    } catch (err) {
+      sendException(err)
+      return { error: '保存文件发生错误' }
+    }
   }
 
   log('处理完成')
