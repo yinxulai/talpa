@@ -24,10 +24,17 @@
     }
   },
   "build": {
-    "productName": "talpa",
+    "productName": "Talpa",
     "artifactName": "talpa-${version}.${ext}",
     "appId": "com.yinxulai.talpa",
     "asar": true,
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "yinxulai",
+        "repo": "talpa"
+      }
+    ],
     "extraResources": [
       "assets/**/*"
     ],
@@ -54,7 +61,7 @@
     "nsis": {
       "createDesktopShortcut": "always",
       "createStartMenuShortcut": true,
-      "shortcutName": "talpa",
+      "shortcutName": "Talpa",
       "oneClick": false,
       "perMachine": true,
       "allowToChangeInstallationDirectory": true,
@@ -81,14 +88,7 @@
         "deb"
       ],
       "category": "com.yinxulai.talpa"
-    },
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "yinxulai",
-        "repo": "talpa"
-      }
-    ]
+    }
   },
   "eslintConfig": {
     "extends": [
