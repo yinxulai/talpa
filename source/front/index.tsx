@@ -4,9 +4,9 @@ import { ipcRenderer } from 'electron'
 import { Drag } from './componet/drag'
 import * as Sentry from '@sentry/electron'
 import { Header } from './componet/header'
-import { initGA, initSentry, sendView } from '../anys'
 import { Exports } from './componet/exports'
 import { Progress } from './componet/progress'
+import { initGA, initSentry, sendView, sendEvent } from '../anys'
 import { ConvertOptions, ConvertResult } from '../../typings/convert'
 import { Toaster, warning, success, error } from 'react-pitaya/lib/helper/toaster'
 import { SupportedEncodeMimeType, SupportedDecodeMimeType } from '../../typings/format'
@@ -32,7 +32,13 @@ export async function convert(options: ConvertOptions): Promise<ConvertResult> {
 // 是否是支持输入的文件格式
 function isDecodeSupported(type: string): boolean {
   const types = Object.values(SupportedDecodeMimeType as Record<string, any>)
-  return types.includes(type)
+  const supported = types.includes(type)
+
+  if (!supported) { // 不支持的上报一下
+    sendEvent('notDecodeSupportedMimeType', type)
+  }
+
+  return supported
 }
 
 // 是否是支持转出的格式
