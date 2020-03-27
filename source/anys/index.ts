@@ -5,7 +5,7 @@ import * as Sentry from '@sentry/electron'
 let visitor: any = null
 
 // 发送页面访问统计
-export const sendPageView = (path = '/') => {
+export const sendView = (path = '/') => {
   visitor?.pageview(path).send()
 }
 
@@ -18,7 +18,7 @@ export const sendEvent = (category: string, action: string) => {
 export const initGA = () => {
   address.mac((_, mac) => {
     visitor = ua('UA-99362118-4', mac || 'null-mac-address')
-    sendPageView()
+    sendView()
   })
 }
 

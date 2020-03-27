@@ -1,5 +1,6 @@
 import { PNG } from 'pngjs'
 import { log } from'../utils'
+import { sendEvent } from '../../anys'
 import { ImageEncodeOptions } from './index'
 
 export interface PNGEncodeOptions {
@@ -11,6 +12,8 @@ export interface PNGEncodeOptions {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function PNGEncode(image: ImageEncodeOptions, _options: PNGEncodeOptions): Promise<Buffer> {
   log('将数据按 PNG 格式进行编码')
+  sendEvent('encode', 'PNGEncode')
+
   const { data, width, height } = image
   const png = new PNG({ width, height })
 

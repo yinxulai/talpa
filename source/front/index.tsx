@@ -4,7 +4,7 @@ import { ipcRenderer } from 'electron'
 import { Drag } from './componet/drag'
 import * as Sentry from '@sentry/electron'
 import { Header } from './componet/header'
-import { initGA, initSentry } from '../anys'
+import { initGA, initSentry, sendView } from '../anys'
 import { Exports } from './componet/exports'
 import { Progress } from './componet/progress'
 import { ConvertOptions, ConvertResult } from '../../typings/convert'
@@ -48,12 +48,19 @@ const App = () => {
   const isState = (...states: AppState[]) => states.includes(state)
   const [exportType, setExportType] = React.useState(SupportedEncodeMimeType.JPEG)
 
+  // 统计
+  const setStateWithAnys: typeof setState = (value) => {
+    sendView(`/?state=${value.toString()}`)
+    return setState(value)
+  }
+
+
   // 转换处理
   const handleFile = async (files: File[]) => {
     const supportedFiles = files.filter(file => isDecodeSupported(file.type))
     warning(`累计发现 ${supportedFiles.length} 个文件可进行转换。`)
     setProgress([supportedFiles.length, 0, 0])
-    setState(AppState.Converting)
+    setStateWithAnys(AppState.Converting)
 
     for (let index = 0; index < supportedFiles.length; index++) {
       const file = supportedFiles[index]
@@ -68,7 +75,7 @@ const App = () => {
     }
 
     progress[1] && success(`成功转换了 ${progress[1]} 个文件`)
-    setState(AppState.ConversionCompleted)
+    setStateWithAnys(AppState.ConversionCompleted)
     setProgress([0, 0, 0])
   }
 
