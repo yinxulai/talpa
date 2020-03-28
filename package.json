@@ -1,7 +1,7 @@
 {
   "name": "talpa",
   "license": "MIT",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Alain <yinxulai@hotmail.com.com>",
   "description": "基于 Electron 的图片格式转换工具",
   "scripts": {
@@ -24,10 +24,17 @@
     }
   },
   "build": {
-    "productName": "talpa",
+    "productName": "Talpa",
     "artifactName": "talpa-${version}.${ext}",
     "appId": "com.yinxulai.talpa",
     "asar": true,
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "yinxulai",
+        "repo": "talpa"
+      }
+    ],
     "extraResources": [
       "assets/**/*"
     ],
@@ -54,7 +61,7 @@
     "nsis": {
       "createDesktopShortcut": "always",
       "createStartMenuShortcut": true,
-      "shortcutName": "talpa",
+      "shortcutName": "Talpa",
       "oneClick": false,
       "perMachine": true,
       "allowToChangeInstallationDirectory": true,
@@ -81,14 +88,7 @@
         "deb"
       ],
       "category": "com.yinxulai.talpa"
-    },
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "yinxulai",
-        "repo": "talpa"
-      }
-    ]
+    }
   },
   "eslintConfig": {
     "extends": [

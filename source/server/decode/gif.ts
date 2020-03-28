@@ -1,6 +1,7 @@
 import omggif from 'omggif'
 import { log } from '../utils'
 import { Buffer } from 'buffer'
+import { sendEvent } from '../../anys'
 import { DecodeResult } from './index'
 
 interface GifReader {
@@ -16,6 +17,8 @@ interface GifReader {
 // GIF 解码
 export async function GIFDecode(data: Buffer): Promise<DecodeResult> {
   log('GIF 格式图片解码')
+  sendEvent('decode', 'GIFDecode')
+
   const image: GifReader = new omggif.GifReader(data)
   if (!image) {
     throw new Error('GIF 格式图片解码失败')

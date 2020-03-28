@@ -1,9 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 import { encode } from './encode'
-import { sendException } from '../anys'
-import { decode, DecodeResult, Result } from './decode'
 import { readFile, writeFile, log } from './utils'
+import { sendException, sendEvent } from '../anys'
+import { decode, DecodeResult, Result } from './decode'
 import { SupportedEncodeMimeType } from '../../typings/format'
 import { ConvertOptions, ConvertResult } from '../../typings/convert'
 
@@ -22,6 +22,7 @@ export default async function convert(options: ConvertOptions): Promise<ConvertR
   if (!outFormat) { // 默认使用 PNG
     log('未设置导出格式，默认使用 PNG')
     outFormat = SupportedEncodeMimeType.PNG
+    sendEvent('convert', 'setDafaultOutFormatToPNG')
   }
 
   // 如果输出目录不存在
@@ -30,12 +31,14 @@ export default async function convert(options: ConvertOptions): Promise<ConvertR
     const newExtname = outFormat.split('/')[1]
     const extnamel = path.extname(srcPath).length || 0
     outPath = `${srcPath.slice(0, srcPath.length - extnamel)}.${newExtname}`
+    sendEvent('convert', 'setOutPathToSrcPath')
   }
 
   // 读取文件
   let file
   try {
     file = await readFile(srcPath)
+    sendEvent('convert', 'readFile')
   } catch (err) {
     sendException(err)
     return { error: '读取文件失败' }
@@ -45,6 +48,7 @@ export default async function convert(options: ConvertOptions): Promise<ConvertR
   let decodeData: DecodeResult
   try {
     decodeData = await decode(file)
+    sendEvent('convert', 'decode')
   } catch (err) {
     sendException(err)
     return { error: '文件解码失败' }
@@ -69,6 +73,7 @@ export default async function convert(options: ConvertOptions): Promise<ConvertR
     let encodeData: Buffer
     try {
       encodeData = await encode(outFormat, data, { ...outOptions })
+      sendEvent('convert', 'encode')
     } catch (err) {
       sendException(err)
       return { error: '文件解码失败' }
@@ -77,12 +82,14 @@ export default async function convert(options: ConvertOptions): Promise<ConvertR
     // 写出文件
     try {
       await writeFile(encodeData, outPath)
+      sendEvent('convert', 'writeFile')
     } catch (err) {
       sendException(err)
       return { error: '保存文件发生错误' }
     }
   }
 
+  sendEvent('convert', 'done')
   log('处理完成')
   return {}
 }

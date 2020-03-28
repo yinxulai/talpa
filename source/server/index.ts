@@ -1,11 +1,11 @@
-import { autoUpdater } from 'electron-updater'
-import { app, BrowserWindow } from 'electron'
-import { initGA, initSentry } from '../anys'
-import { format as formatUrl } from 'url'
-import { sendException } from '../anys'
-import { isDev } from './utils'
-import path from 'path'
 import './handler'
+import path from 'path'
+import { isDev } from './utils'
+import { sendException } from '../anys'
+import { format as formatUrl } from 'url'
+import { initGA, initSentry } from '../anys'
+import { app, BrowserWindow } from 'electron'
+import { autoUpdater } from 'electron-updater'
 
 initGA()
 initSentry()
@@ -86,6 +86,10 @@ app.on('activate', () => {
 // create main BrowserWindow when electron is ready
 app.on('ready', () => {
   mainWindow = createMainWindow()
+
+  // TODO:
+  // 需要提示用户 因为应用的活动周期较短
+  // 自动下载 99% 没下完包用户就退出了
   autoUpdater.checkForUpdatesAndNotify()
 })
 

@@ -4,9 +4,9 @@ import { ipcRenderer } from 'electron'
 import { Drag } from './componet/drag'
 import * as Sentry from '@sentry/electron'
 import { Header } from './componet/header'
-import { initGA, initSentry } from '../anys'
 import { Exports } from './componet/exports'
 import { Progress } from './componet/progress'
+import { initGA, initSentry, sendView, sendEvent } from '../anys'
 import { ConvertOptions, ConvertResult } from '../../typings/convert'
 import { Toaster, warning, success, error } from 'react-pitaya/lib/helper/toaster'
 import { SupportedEncodeMimeType, SupportedDecodeMimeType } from '../../typings/format'
@@ -32,7 +32,13 @@ export async function convert(options: ConvertOptions): Promise<ConvertResult> {
 // 是否是支持输入的文件格式
 function isDecodeSupported(type: string): boolean {
   const types = Object.values(SupportedDecodeMimeType as Record<string, any>)
-  return types.includes(type)
+  const supported = types.includes(type)
+
+  if (!supported) { // 不支持的上报一下
+    sendEvent('notDecodeSupportedMimeType', type)
+  }
+
+  return supported
 }
 
 // 是否是支持转出的格式
@@ -48,12 +54,19 @@ const App = () => {
   const isState = (...states: AppState[]) => states.includes(state)
   const [exportType, setExportType] = React.useState(SupportedEncodeMimeType.JPEG)
 
+  // 统计
+  const setStateWithAnys: typeof setState = (value) => {
+    sendView(`/?state=${value.toString()}`)
+    return setState(value)
+  }
+
+
   // 转换处理
   const handleFile = async (files: File[]) => {
     const supportedFiles = files.filter(file => isDecodeSupported(file.type))
     warning(`累计发现 ${supportedFiles.length} 个文件可进行转换。`)
     setProgress([supportedFiles.length, 0, 0])
-    setState(AppState.Converting)
+    setStateWithAnys(AppState.Converting)
 
     for (let index = 0; index < supportedFiles.length; index++) {
       const file = supportedFiles[index]
@@ -68,7 +81,7 @@ const App = () => {
     }
 
     progress[1] && success(`成功转换了 ${progress[1]} 个文件`)
-    setState(AppState.ConversionCompleted)
+    setStateWithAnys(AppState.ConversionCompleted)
     setProgress([0, 0, 0])
   }
 

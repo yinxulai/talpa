@@ -1,5 +1,6 @@
 import jpegJs from 'jpeg-js'
 import { log } from'../utils'
+import { sendEvent } from '../../anys'
 import { ImageEncodeOptions } from './index'
 
 export interface JPEGEncodeOptions {
@@ -9,6 +10,7 @@ export interface JPEGEncodeOptions {
 // JPEG 编码
 export async function JPEGEncode(image: ImageEncodeOptions, options: JPEGEncodeOptions): Promise<Buffer> {
   log('将数据按 JPEG 格式进行编码')
+  sendEvent('encode', 'JPEGEncode')
   const { data, width, height } = image
   const { quality = 100 } = options || {}
   const result = jpegJs.encode({ data, width, height }, quality)

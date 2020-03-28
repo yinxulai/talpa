@@ -18,7 +18,7 @@ export type DecodeResult = Result | Array<Result>
 export async function decode(data: Buffer): Promise<DecodeResult> {
   // 解析图片格式（不以后缀名为准）
   const fileTypeResult = await fromBuffer(data)
-  
+
   if (fileTypeResult == null) {
     throw new Error('不支持的文件格式')
   }
