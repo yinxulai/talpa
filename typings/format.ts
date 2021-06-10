@@ -3,7 +3,8 @@
 // 支持编码转出的图片类型
 export enum SupportedEncodeMimeType {
   PNG = 'image/png',
-  JPEG = 'image/jpeg'
+  JPEG = 'image/jpeg',
+  WEBP = 'image/webp',
 }
 
 // 支持解码输入的图片类型

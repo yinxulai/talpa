@@ -25,8 +25,8 @@ function createMainWindow() {
   }
 
   const window = new BrowserWindow({
-    width: 350,
-    height: 250,
+    width: 600,
+    height: 450,
     show: false,
     transparent: true,
     titleBarStyle: 'hidden',

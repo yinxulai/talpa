@@ -1,5 +1,6 @@
 import { PNGEncode } from './png'
 import { JPEGEncode } from './jpeg'
+import { WEBPEncode } from './webp'
 import * as t from '../../../typings/convert'
 import { SupportedEncodeMimeType } from '../../../typings/format'
 
@@ -18,6 +19,10 @@ export async function encode(format: SupportedEncodeMimeType, image: ImageEncode
 
   if (format === SupportedEncodeMimeType.PNG) {
     return await PNGEncode(image, options)
+  }
+
+  if (format === SupportedEncodeMimeType.WEBP) {
+    return await WEBPEncode(image, options)
   }
 
   throw new Error('不支持的文件格式')

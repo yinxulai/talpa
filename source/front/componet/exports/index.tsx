@@ -29,12 +29,6 @@ export const Exports = (props: Props) => {
           )
         })
       }
-
-      {/* // 如果格式增加，非常见格式放在浮层让用户选择 */}
-      <div className={styles.selectItem}>
-        {/* 点击弹起浮层 */}
-        <div className={styles.extName}>更多</div>
-      </div>
     </div>
   )
 }

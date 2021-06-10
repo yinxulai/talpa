@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import sharp from 'sharp'
 import { encode } from './encode'
 import { readFile, writeFile, log } from './utils'
 import { sendException, sendEvent } from '../anys'
@@ -44,50 +45,67 @@ export default async function convert(options: ConvertOptions): Promise<ConvertR
     return { error: '读取文件失败' }
   }
 
-  // 解码文件
-  let decodeData: DecodeResult
-  try {
-    decodeData = await decode(file)
-    sendEvent('convert', 'decode')
-  } catch (err) {
-    sendException(err)
-    return { error: '文件解码失败' }
-  }
+    // 如果输出为webp文件
+    if(outFormat === SupportedEncodeMimeType.WEBP){
+      log('处理webp文件')
+      const data = await sharp(file).webp({ lossless: true }).toBuffer()
 
-  // TODO: 这里可以做一些压缩等操作
-
-  const encodeQueue: Result[] = []
-
-  if (Array.isArray(decodeData)) {
-    if (encodeSequence) {
-      encodeQueue.concat(decodeData)
+      // 写出文件
+      try {
+        await writeFile(data, outPath)
+        sendEvent('convert', 'writeFile')
+      } catch (err) {
+        sendException(err)
+        return { error: '保存文件发生错误' }
+      }
     } else {
-      encodeQueue.push(decodeData[0])
-    }
-  } else {
-    encodeQueue.push(decodeData)
-  }
+      log('处理非webp文件')
 
-  for (const data of encodeQueue) {
-    // 编码文件
-    let encodeData: Buffer
-    try {
-      encodeData = await encode(outFormat, data, { ...outOptions })
-      sendEvent('convert', 'encode')
-    } catch (err) {
-      sendException(err)
-      return { error: '文件解码失败' }
-    }
+      // 解码文件
+      let decodeData: DecodeResult
+      try {
+        decodeData = await decode(file)
+        sendEvent('convert', 'decode')
+      } catch (err) {
+        sendException(err)
+        return { error: '文件解码失败' }
+      }
 
-    // 写出文件
-    try {
-      await writeFile(encodeData, outPath)
-      sendEvent('convert', 'writeFile')
-    } catch (err) {
-      sendException(err)
-      return { error: '保存文件发生错误' }
+      // TODO: 这里可以做一些压缩等操作
+
+      const encodeQueue: Result[] = []
+
+      if (Array.isArray(decodeData)) {
+        if (encodeSequence) {
+          encodeQueue.concat(decodeData)
+        } else {
+          encodeQueue.push(decodeData[0])
+        }
+      } else {
+        encodeQueue.push(decodeData)
+      }
+
+      for (const data of encodeQueue) {
+        // 编码文件
+        let encodeData: Buffer
+        try {
+          encodeData = await encode(outFormat, data, { ...outOptions })
+          sendEvent('convert', 'encode')
+        } catch (err) {
+          sendException(err)
+          return { error: '文件编码失败' }
+        }
+
+        // 写出文件
+        try {
+          await writeFile(encodeData, outPath)
+          sendEvent('convert', 'writeFile')
+        } catch (err) {
+          sendException(err)
+          return { error: '保存文件发生错误' }
+        }
+      }
     }
-  }
 
   sendEvent('convert', 'done')
   log('处理完成')
