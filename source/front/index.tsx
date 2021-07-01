@@ -26,6 +26,7 @@ enum AppState {
 
 // 单个文件转换
 export async function convert(options: ConvertOptions): Promise<ConvertResult> {
+  console.log(options)
   return ipcRenderer.invoke('convert', options)
 }
 
