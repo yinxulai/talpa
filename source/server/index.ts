@@ -1,4 +1,3 @@
-import './handler'
 import path from 'path'
 import { isDev } from './utils'
 import { sendException } from '../anys'
@@ -6,12 +5,13 @@ import { format as formatUrl } from 'url'
 import { initGA, initSentry } from '../anys'
 import { app, BrowserWindow } from 'electron'
 import { autoUpdater } from 'electron-updater'
+import './handler'
 
 initGA()
 initSentry()
 
 // 背景透明
-app.commandLine.appendSwitch('disable-renderer-backgrounding');
+app.commandLine.appendSwitch('disable-renderer-backgrounding')
 
 // 启动热更新
 if (module.hot) { module.hot.accept() }

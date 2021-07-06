@@ -1,12 +1,12 @@
 import fs from 'fs'
 import path from 'path'
 
-export function isDev() {
+export function isDev(): boolean {
   return process.env.NODE_ENV === 'development'
 }
 
 // 日志、方便调试
-export function log(...args: any[]) {
+export function log(...args: any[]): void {
   if (isDev()) {
     console.log(...args)
   }

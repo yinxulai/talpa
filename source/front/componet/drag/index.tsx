@@ -15,7 +15,7 @@ interface DragProps {
   onSelect: (file: File[]) => void
 }
 
-export const Drag = (props: DragProps) => {
+export const Drag = (props: DragProps): React.ReactElement => {
   const [dragState, updateDragState] = React.useState<DragState>(DragState.PRIMARY)
   const onDrag = e => { e.preventDefault(); updateDragState(DragState.DRAG) }
   const onDragEnd = e => { e.preventDefault(); updateDragState(DragState.DRAGEND) }
@@ -42,7 +42,7 @@ export const Drag = (props: DragProps) => {
 
   return (
     <div
-      onDrop {...eventListens}
+      {...eventListens}
       className={[styles.drag, styles[dragState]].join(' ')}
     >
       <div className={styles.content}>

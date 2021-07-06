@@ -47,7 +47,7 @@ function isDecodeSupported(type: string): boolean {
 //   return types.includes(type)
 // }
 
-const App = () => {
+const App = (): React.ReactElement => {
   // 状态相关
   const [progress, setProgress] = React.useState([0, 0, 0])
   const [state, setState] = React.useState(AppState.WaitingFile)
