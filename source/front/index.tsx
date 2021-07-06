@@ -16,7 +16,7 @@ import styles from './index.less'
 initGA()
 initSentry()
 
-Sentry.captureException(new Error('test'));
+Sentry.captureException(new Error('test'))
 
 enum AppState {
   Converting = 'Converting', // 转换中
@@ -26,6 +26,7 @@ enum AppState {
 
 // 单个文件转换
 export async function convert(options: ConvertOptions): Promise<ConvertResult> {
+  console.log(options)
   return ipcRenderer.invoke('convert', options)
 }
 
@@ -52,7 +53,7 @@ const App = () => {
   const [progress, setProgress] = React.useState([0, 0, 0])
   const [state, setState] = React.useState(AppState.WaitingFile)
   const isState = (...states: AppState[]) => states.includes(state)
-  const [exportType, setExportType] = React.useState(SupportedEncodeMimeType.JPEG)
+  const [exportType, setExportType] = React.useState(SupportedEncodeMimeType.WEBP)
 
   // 统计
   const setStateWithAnys: typeof setState = (value) => {

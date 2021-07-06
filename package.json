@@ -146,10 +146,12 @@
     "react-dom": "^16.13.0",
     "react-pitaya": "^0.0.14",
     "react-transition-group": "^4.3.0",
+    "sharp": "^0.28.3",
     "source-map-support": "^0.5.16",
     "universal-analytics": "^0.4.20",
     "update-electron-app": "^1.5.0",
-    "utif": "^3.1.0"
+    "utif": "^3.1.0",
+    "webp-converter": "^2.3.3"
   },
   "devDependencies": {
     "@types/node": "^13.9.3",
@@ -162,6 +164,7 @@
     "css-loader": "^3.4.2",
     "electron": "8.2.0",
     "electron-builder": "22.4.1",
+    "electron-devtools-installer": "^3.2.0",
     "electron-webpack": "^2.8.0",
     "electron-webpack-eslint": "^5.1.0",
     "electron-webpack-ts": "^4.0.0",

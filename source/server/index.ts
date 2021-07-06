@@ -6,6 +6,13 @@ import { format as formatUrl } from 'url'
 import { initGA, initSentry } from '../anys'
 import { app, BrowserWindow } from 'electron'
 import { autoUpdater } from 'electron-updater'
+import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
+
+app.whenReady().then(() => {
+    installExtension(REACT_DEVELOPER_TOOLS)
+        .then((name) => console.log(`Added Extension:  ${name}`))
+        .catch((err) => console.log('An error occurred: ', err))
+})
 
 initGA()
 initSentry()
@@ -25,8 +32,8 @@ function createMainWindow() {
   }
 
   const window = new BrowserWindow({
-    width: 350,
-    height: 250,
+    width: 600,
+    height: 450,
     show: false,
     transparent: true,
     titleBarStyle: 'hidden',

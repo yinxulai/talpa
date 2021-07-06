@@ -12,7 +12,7 @@
 
 ### 安装下载
 
-  请在 [`release`](https://github.com/yinxulai/talpa/releases) 下载自己的平台二进制文件包即可
+请在 [`release`](https://github.com/yinxulai/talpa/releases) 下载自己的平台二进制文件包即可
 
 ### 使用
 
@@ -23,13 +23,14 @@
 ![演示](https://github.com/yinxulai/talpa/blob/desgin/assets/preview.gif)
 
 ## TODO
- * [x] 支持导出格式选择
- * [x] 添加转换 png 格式支持
- * [x] 添加转换 jpeg 格式支持
- * [x] 添加转换 gif 格式支持
- * [x] 添加转换 tiff 格式支持
- * [ ] 添加转换 webp 格式支持
- * [ ] 添加转出 webp 格式支持
- * [ ] 添加详细的设置界面
- * [ ] 支持包含序列的图像全序列导出（gif、tiff、heic）
- * [ ] 优化交互、动画、界面
+
+- [x] 支持导出格式选择
+- [x] 添加转换 png 格式支持
+- [x] 添加转换 jpeg 格式支持
+- [x] 添加转换 gif 格式支持
+- [x] 添加转换 tiff 格式支持
+- [ ] 添加转换 webp 格式支持
+- [x] 添加转出 webp 格式支持
+- [ ] 添加详细的设置界面
+- [ ] 支持包含序列的图像全序列导出（gif、tiff、heic）
+- [ ] 优化交互、动画、界面
