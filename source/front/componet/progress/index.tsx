@@ -7,7 +7,7 @@ interface Props {
   completed: number // 完成的
 }
 
-export const Progress = (props: Props) => {
+export const Progress = (props: Props): React.ReactElement => {
 
   const { total, failure, completed } = props
   const width = (value: number) => ({
@@ -29,4 +29,3 @@ export const Progress = (props: Props) => {
     </div>
   )
 }
-

@@ -4,10 +4,10 @@ import { SupportedEncodeMimeType as SupType } from '../../../../typings/format'
 
 interface Props {
   value: SupType
-  onSelect: (type: SupType) => void
+  onSelect: (_type: SupType) => void
 }
 
-export const Exports = (props: Props) => {
+export const Exports = (props: Props): React.ReactElement => {
   const { value, onSelect } = props
   const classNames = (supType: SupType) => {
     return value !== supType
@@ -38,4 +38,3 @@ export const Exports = (props: Props) => {
     </div>
   )
 }
-

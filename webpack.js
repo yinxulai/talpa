@@ -10,5 +10,6 @@ module.exports = function (config) {
     }
   })
 
+  console.log(config.module.rules)
   return config
 }
