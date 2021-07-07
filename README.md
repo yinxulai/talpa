@@ -1,35 +1,27 @@
-# talpa
+# Vue 3 + Typescript + Vite
 
-![logo](https://github.com/yinxulai/talpa/blob/desgin/assets/logo/64x64.png)
+This template should help get you started developing with Vue 3 and Typescript in Vite.
 
-![Build/release](https://github.com/yinxulai/talpa/workflows/Build/release/badge.svg)
+## Recommended IDE Setup
 
-基于 `Electron` 的图片格式转换工具，`talpa` 是拉丁语中变色龙的意思，这个工具开始只是为了方便自己导出手机里的 heic 相片，后面将考虑支持更多格式的转换支持。
+[VSCode](https://code.visualstudio.com/) + [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur). Make sure to enable `vetur.experimental.templateInterpolationService` in settings!
 
-## 功能
+### If Using `<script setup>`
 
-目前支持 `heic`、`png`、`jpeg`、`tiff`、`gif` 转换为 `png`、`jpeg`, 其他格式慢慢支持中。。。
+[`<script setup>`](https://github.com/vuejs/rfcs/pull/227) is a feature that is currently in RFC stage. To get proper IDE support for the syntax, use [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) instead of Vetur (and disable Vetur).
 
-### 安装下载
+## Type Support For `.vue` Imports in TS
 
-  请在 [`release`](https://github.com/yinxulai/talpa/releases) 下载自己的平台二进制文件包即可
+Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can use the following:
 
-### 使用
+### If Using Volar
 
-直接拖入文件即可，将你所有的文件拖入窗口所示区域、然后松开、软件会自动过滤不支持的格式，剩下的文件会自动进行转换。
+Run `Volar: Switch TS Plugin on/off` from VSCode command palette.
 
-### 演示
+### If Using Vetur
 
-![演示](https://github.com/yinxulai/talpa/blob/desgin/assets/preview.gif)
-
-## TODO
- * [x] 支持导出格式选择
- * [x] 添加转换 png 格式支持
- * [x] 添加转换 jpeg 格式支持
- * [x] 添加转换 gif 格式支持
- * [x] 添加转换 tiff 格式支持
- * [ ] 添加转换 webp 格式支持
- * [ ] 添加转出 webp 格式支持
- * [ ] 添加详细的设置界面
- * [ ] 支持包含序列的图像全序列导出（gif、tiff、heic）
- * [ ] 优化交互、动画、界面
+1. Install and add `@vuedx/typescript-plugin-vue` to the [plugins section](https://www.typescriptlang.org/tsconfig#plugins) in `tsconfig.json`
+2. Delete `src/shims-vue.d.ts` as it is no longer needed to provide module info to Typescript
+3. Open `src/main.ts` in VSCode
+4. Open the VSCode command palette
+5. Search and run "Select TypeScript version" -> "Use workspace version"

@@ -1,17 +1,27 @@
 {
-  "extends": "./node_modules/electron-webpack/tsconfig-base.json",
   "compilerOptions": {
-    "skipLibCheck": true,
-    "noImplicitAny": false,
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "baseUrl": ".",
-    "jsx": "react",
     "typeRoots": [
-      "node_modules/@types",
-      "typings"
+      "types"
     ]
   },
-  "exclude": [
-    "node_modules",
-    "webpack.js"
+  "include": [
+    "types/*",
+    "source/**/*.ts",
+    "source/**/*.d.ts",
+    "source/**/*.tsx",
+    "source/**/*.vue"
   ]
 }
