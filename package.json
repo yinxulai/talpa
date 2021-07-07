@@ -1,19 +1,35 @@
 {
-  "version": "0.0.0",
+  "name": "react-typescript",
+  "description": "React Typescript",
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "serve": "vite preview"
+    "dev": "yarn run source:dev & yarn run electron:dev",
+    "electron:dev": "electron ./dist/server.bundle.js",
+    "source:dev": "webpack serve --mode development --inline --hot --config webpack.js",
+    "source:build": "webpack --mode development  --config webpack.js",
+    "source:lint": "eslint --ext .tsx,.ts src/"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^17.0.13",
+    "@types/react-dom": "^17.0.8",
+    "css-loader": "^5.2.6",
+    "esbuild-loader": "^2.13.1",
+    "eslint": "^7.30.0",
+    "eslint-webpack-plugin": "^2.5.4",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "less": "^4.1.1",
+    "less-loader": "^10.0.1",
+    "style-loader": "^3.0.0",
+    "webpack": "^5.43.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "vue": "^3.0.5"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^1.2.4",
-    "@vue/compiler-sfc": "^3.0.5",
     "electron": "^13.1.6",
-    "typescript": "^4.3.2",
-    "vite": "^2.4.0",
-    "vue-tsc": "^0.0.24"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }

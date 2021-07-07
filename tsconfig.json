@@ -1,27 +1,17 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "jsx": "react",
+    "target": "es6",
+    "module": "es6",
     "strict": true,
-    "jsx": "preserve",
     "sourceMap": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "lib": [
-      "esnext",
-      "dom"
-    ],
-    "baseUrl": ".",
+    "moduleResolution": "node",
     "typeRoots": [
       "types"
     ]
   },
   "include": [
-    "types/*",
-    "source/**/*.ts",
-    "source/**/*.d.ts",
-    "source/**/*.tsx",
-    "source/**/*.vue"
+    "source",
+    "types"
   ]
 }
