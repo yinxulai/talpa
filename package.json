@@ -139,7 +139,7 @@
     "electron-updater": "^4.2.5",
     "file-type": "^14.1.4",
     "heic-decode": "^1.1.1",
-    "jpeg-js": "^0.3.7",
+    "jpeg-js": "^0.4.4",
     "omggif": "^1.0.10",
     "pngjs": "^3.4.0",
     "react": "^16.13.0",
