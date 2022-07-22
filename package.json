@@ -137,7 +137,7 @@
     "autobind-decorator": "^2.4.0",
     "electron-squirrel-startup": "^1.0.0",
     "electron-updater": "^4.2.5",
-    "file-type": "^14.1.4",
+    "file-type": "^16.5.4",
     "heic-decode": "^1.1.1",
     "jpeg-js": "^0.3.7",
     "omggif": "^1.0.10",
